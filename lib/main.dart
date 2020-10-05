@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/screens/categories_screen.dart';
 import 'package:recipes/screens/category_meals_screen.dart';
+import 'package:recipes/screens/meal_detail_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,7 +35,21 @@ class MyApp extends StatelessWidget {
         '/': (ctx) => CategoriesScreen(),
         // use the static property
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+        MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
       },
+      /*
+       if we go to a named route that is not registered in the routes above
+       onGenerateRoute: (settings) {
+         print(settings.arguments);
+       },
+       */
+      // when flutter failed to build a screen with all other measures
+
+      /*
+      onUnknownRoute: (settings) {
+        // like a 404 falback page
+      },
+      */
     );
   }
 }
