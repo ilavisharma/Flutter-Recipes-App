@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:recipes/screens/filters_screen.dart';
 
 class MainDrawer extends StatelessWidget {
-  Widget buildListTile(String title, IconData icon) {
+  Widget buildListTile(String title, IconData icon, Function tapHandler) {
     return ListTile(
       leading: Icon(icon, size: 26),
       title: Text(
@@ -11,9 +12,7 @@ class MainDrawer extends StatelessWidget {
             fontSize: 24,
             fontWeight: FontWeight.bold),
       ),
-      onTap: () {
-        // ...
-      },
+      onTap: tapHandler,
     );
   }
 
@@ -37,8 +36,19 @@ class MainDrawer extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          buildListTile('Melas', Icons.restaurant_menu),
-          buildListTile('Filters', Icons.settings),
+          buildListTile(
+            'Melas',
+            Icons.restaurant_menu,
+            () => Navigator.of(context).pushNamed('/'),
+          ),
+          buildListTile(
+            'Filters',
+            Icons.settings,
+            // replace the existing page on the stack with a new page
+            // not push on top but replace the page
+            () => Navigator.of(context)
+                .pushReplacementNamed(FiltersScreen.routeName),
+          ),
         ],
       ),
     );

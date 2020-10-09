@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipes/screens/categories_screen.dart';
 import 'package:recipes/screens/category_meals_screen.dart';
+import 'package:recipes/screens/filters_screen.dart';
 import 'package:recipes/screens/meal_detail_screen.dart';
 import 'package:recipes/screens/tabs_screen.dart';
 
@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
         // use the static property
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+        FiltersScreen.routeName: (ctx) => FiltersScreen(),
       },
       /*
        if we go to a named route that is not registered in the routes above
